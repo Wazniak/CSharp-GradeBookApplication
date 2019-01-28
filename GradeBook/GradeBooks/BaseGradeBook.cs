@@ -31,28 +31,28 @@ namespace GradeBook.GradeBooks
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentException("A Name is required to remove a student from a gradebook.");
-            var student = Students.FirstOrDefault(e => e.Name == name);
-            if (student == null)
+            var searchedStudent = Students.FirstOrDefault(e => e.Name == name);
+            if (searchedStudent == null)
             {
                 Console.WriteLine("student {0} was not found, try again.", name);
                 return;
             }
 
-            Students.Remove(student);
+            Students.Remove(searchedStudent);
         }
 
         public void AddGrade(string name, double score)
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentException("A Name is required to add a grade to a student.");
-            var student = Students.FirstOrDefault(e => e.Name == name);
-            if (student == null)
+            var searchedStudent = Students.FirstOrDefault(e => e.Name == name);
+            if (searchedStudent == null)
             {
                 Console.WriteLine("student {0} was not found, try again.", name);
                 return;
             }
 
-            student.AddGrade(score);
+            searchedStudent.AddGrade(score);
         }
 
         public void RemoveGrade(string name, double score)

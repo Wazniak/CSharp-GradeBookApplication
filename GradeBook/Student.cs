@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
-
 using GradeBook.Enums;
 
 namespace GradeBook
@@ -13,18 +12,15 @@ namespace GradeBook
         public StudentType Type { get; set; }
         public EnrollmentType Enrollment { get; set; }
         public List<double> Grades { get; set; }
+
         [JsonIgnore]
         public double AverageGrade
         {
-            get
-            {
-                return Grades.Average();
-            }
+            get { return Grades.Average(); }
         }
-        [JsonIgnore]
-        public char LetterGrade { get; set; }
-        [JsonIgnore]
-        public double GPA { get; set; }
+
+        [JsonIgnore] public char LetterGrade { get; set; }
+        [JsonIgnore] public double GPA { get; set; }
 
         public Student(string name, StudentType studentType, EnrollmentType enrollment)
         {
